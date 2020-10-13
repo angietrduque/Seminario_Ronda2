@@ -5,10 +5,33 @@ date: "10/30/2020"
 output: pdf_document
 ---
 
-# Introducción
+# Historia
 
-#
+# Introducción a redes neuronales
 
-#
+## ¿Qué es una neurona?
 
-#
+## ¿Qué es una neurona artificial?
+
+## Componentes de una neurona artificial 
+
+## Perceptrón
+
+# Redes Neuronales
+
+## Capas
+
+# Perceptrón multicapa
+
+-
+
+-
+
+# Tipos de redes neuronales
+
+# Redes relevantes
+
+- Redes convolucionales
+
+- Redes generativas adversarias
+
