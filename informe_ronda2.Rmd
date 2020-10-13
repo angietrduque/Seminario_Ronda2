@@ -1,0 +1,14 @@
+---
+title: 'Informe 2: Redes Neuronales'
+author: "Angie Rodriguez Duque & Cesar Saavedra Vanegas"
+date: "10/30/2020"
+output: pdf_document
+---
+
+# Introducción
+
+#
+
+#
+
+#
