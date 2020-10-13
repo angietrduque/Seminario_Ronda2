@@ -24,29 +24,77 @@ suppressMessages(library(reshape2))
 ```
 
 
-# Introducción
-##
-
-# Definición
+# Historia
 ##
 <div style="text-align: justify">
 
 
 <div/>
 
-# Centrar
-##
+# Introducción a redes neuronales
+
+<div style="text-align: justify">
+
+## ¿Qué es una neurona?
+
+Partes de una neurona:
+
+* Cuerpo celular
+* Dendritas
+* Axón
+* Sinapsis
+
+<div/>
+
+## ¿Qué es una neurona artifical?
+
 <div style="text-align: justify">
 
 
 <div/>
 
-# Ajuste del modelo
+## Componentes de una neurona artifical
+
+<div style="text-align: justify">
+
+
+<div/>
+
+# Perceptrón
 ##
 <div style="text-align: justify">
 
 <div/>
 
+
+# Redes neuronales
+
+<div style="text-align: justify">
+
+## Capas
+
+<div/>
+
+# Perceptrón multicapa
+##
+<div style="text-align: justify">
+
+<div/>
+
+# Tipos de redes neuronales
+##
+<div style="text-align: justify">
+
+<div/>
+
+# Redes relevantes
+##
+<div style="text-align: justify">
+
+* **Redes convolucionales:**
+* **Redes generativas adversarias:**
+
+<div/>
 
 # Bibliografía
 ##
