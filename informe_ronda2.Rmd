@@ -1,37 +1,28 @@
 ---
 title: 'Informe 2: Redes Neuronales'
-author: "Angie Rodriguez Duque & Cesar Saavedra Vanegas"
+author: "Angie Rodríguez Duque & César Saavedra Vanegas"
 date: "10/30/2020"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
 ---
 
-# Historia
+# Redes neuronales 
 
-# Introducción a redes neuronales
+# Adaptación de redes neuronales 
 
-## ¿Qué es una neurona?
+# Algunos problemas en el entrenamiento de redes neuronales 
 
-## ¿Qué es una neurona artificial?
+## Valores iniciales 
 
-## Componentes de una neurona artificial 
+## Sobreajuste 
 
-## Perceptrón
+## Escalado de las entradas 
 
-# Redes Neuronales
+## Número de capas y unidades ocultas 
 
-## Capas
+## Minimos multiples 
 
-# Perceptrón multicapa
+# Ejemplo: Datos simulados
 
--
-
--
-
-# Tipos de redes neuronales
-
-# Redes relevantes
-
-- Redes convolucionales
-
-- Redes generativas adversarias
-
+# Ejemplo: Datos de código postal
