@@ -240,10 +240,36 @@ Se comparan los dos MSE para el modelo estimado de forma tradicional y por media
 print(paste(MSE.lm,MSE.nn))
 ```
 
-Los resultados muestran que la red neuronal esta realizando una mejor prediccion para los "medv" que el modelo lineal.
+Los resultados muestran que la red neuronal está realizando una mejor predicción para los "medv" que el modelo lineal.
 
 ##
-### ** **
+### **Rendimiento de la Red neuronal vs. Modelo lineal**
+
+<div style="text-align: justify">
+
+A continuación se muestra un primer enfoque visual del rendimiento de la red y el modelo lineal en el conjunto de prueba.
+
+<center>
+![Real vs. predicción](salida1.png "Red neuronal"){width=500px}
+<center>
+
+<div style="text-align: justify">
+
+A partir de la figura anterior es posible evidenciar que las predicciones hechas por la red neuronal están (en general) más concentradas alrededor de la línea (una alineación perfecta con la línea indicaría un MSE de 0 y, por lo tanto, una predicción perfecta ideal) que las realizadas por el modelo lineal.
+
+<div>
+
+
+##
+### **Rendimiento de la Red neuronal vs. Modelo lineal**
+
+<div style="text-align: justify">
+
+A continuación se muestra una comparación visual más útil:
+
+<center>
+![Red neuronal real vs. predicción](salida2.png "Red neuronal"){width=500px}
 
 
 
+<div>
