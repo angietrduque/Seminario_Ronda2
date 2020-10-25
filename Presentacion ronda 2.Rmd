@@ -8,6 +8,38 @@ output:
     smaller: true 
     transition: slower
 ---
+```{r warning=FALSE, include=F, paged.print=TRUE}
+suppressMessages(library(neuralnet))
+suppressMessages(library(NeuralNetTools))
+suppressMessages(library(dplyr))
+suppressMessages(library(readxl))
+suppressMessages(library(tidyverse))
+suppressMessages(library(FactoMineR))
+suppressMessages(library(factoextra))
+suppressMessages(library(foreign))
+suppressMessages(library(corrplot))
+suppressMessages(library(polycor))
+suppressMessages(library(psych))
+suppressMessages(library(gplots))
+suppressMessages(library(gridExtra))
+suppressMessages(library(viridis))
+suppressMessages(library(lsr))
+suppressMessages(library(DescTools))
+suppressMessages(library(magrittr))
+suppressMessages(library(nlme))
+suppressMessages(library(MASS))
+suppressMessages(library(multilevel))
+suppressMessages(library(reshape))
+suppressMessages(library(homals))
+suppressMessages(library(GGally))
+suppressMessages(library(CCA))
+suppressMessages(library(plotly))
+suppressMessages(library(broom))
+suppressMessages(library(readr))
+suppressMessages(library(readxl))
+suppressMessages(library(MASS))
+suppressMessages(library(VGAM))
+```
 
 # REDES NEURONALES
 
@@ -102,4 +134,110 @@ La mayoría de las aplicaciones de las redes neuronales consisten en:
 <div/>
 
 # EJEMPLO DE APLICACIÓN
+##
+<div style="text-align: justify">
+
+### **El conjunto de datos**
+
+Se hará uso del conjunto de datos denominado: "Boston" perteneciente al paquete MASS. El conjunto de datos de Boston es una colección de datos sobre el valor de las viviendas en los suburbios de Boston. Nuestro objetivo es predecir el valor medio de las viviendas ocupadas por sus propietarios (medv) utilizando todas las demás variables continuas disponibles.
+
+```{r warning=FALSE, include=T, paged.print=TRUE}
+set.seed(500)
+library(MASS)
+data <- Boston
+```
+
+Como primera medida se verifica que no falte ningún punto de datos; de lo contrario, es necesario corregir el conjunto.
+
+```{r warning=FALSE, include=T, paged.print=TRUE}
+apply(data,2,function(x) sum(is.na(x)))
+```
+<div/>
+
+##
+
+```{r warning=FALSE, include=T, paged.print=F}
+index <- sample(1:nrow(data),round(0.75*nrow(data)))
+train <- data[index,]
+test <- data[-index,]
+lm.fit <- glm(medv~., data=train)
+summary(lm.fit)
+pr.lm <- predict(lm.fit,test)
+MSE.lm <- sum((pr.lm - test$medv)^2)/nrow(test)
+```
+
+
+
+
+##
+
+### **Adaptación de la red neuronal**
+
+Antes de instalar una red neuronal, es necesario realizar algunos preparativos. Como primer paso, se aborda el preprocesamiento de datos. Aquí se normalizan los datos antes de entrenar la red neuronal.
+
+Se elige el método min-max y se escalan los datos en el intervalo [0,1]. Normalmente, el escalado en los intervalos [0,1] o [-1,1] tiende a dar mejores resultados. Por lo tanto, escalamos y dividimos los datos antes de continuar:
+
+
+```{r warning=FALSE, include=T, paged.print=TRUE}
+maxs <- apply(data, 2, max) 
+mins <- apply(data, 2, min)
+scaled <- as.data.frame(scale(data, center = mins, scale = maxs - mins))
+train_ <- scaled[index,]
+test_ <- scaled[-index,]
+```
+
++ **Nota:** Tener en cuenta que *scale* devuelve una matriz que necesita ser convertida en un data.frame.
+
+## 
+
+### **Parámetros**
+
+<div style="text-align: justify">
+
+En esta ocasión, vamos a utilizar 2 capas ocultas con esta configuración: 
+
+$$13: 5: 3: 1$$
+
+La capa de entrada tiene 13 entradas, las dos capas ocultas tienen 5 y 3 neuronas y la capa de salida tiene, por supuesto, una única salida ya que estamos haciendo regresión.
+
+```{r warning=FALSE, include=T, paged.print=TRUE}
+library(neuralnet)
+n <- names(train_)
+f <- as.formula(paste("medv ~", paste(n[!n %in% "medv"], collapse = " + ")))
+nn <- neuralnet(f,data=train_,hidden=c(5,3),linear.output=T)
+```
+
+<div/>
+
+## 
+
+### **Representación gráfica**
+
+<div style="text-align: justify">
+
+El paquete neuralnet proporciona una buena herramienta para trazar el modelo. Esta es la representación gráfica del modelo con los pesos en cada conexión:
+
+```{r warning=FALSE, include=T, paged.print=TRUE}
+plot(nn)
+```
+
+<div/>
+
+
+## 
+
+### **Observaciones**
+
+<div style="text-align: justify">
+
++ Las líneas negras muestran las conexiones entre cada capa y los pesos en cada conexión.
+
++ Las líneas azules muestran el término de sesgo agregado en cada paso.
+
++ El sesgo se puede pensar como la intersección de un modelo lineal.
+
++ Finalmente, el algoritmo de entrenamiento ha convergido y, por lo tanto, el modelo está listo para ser utilizado.
+
+
+<div/>
 
