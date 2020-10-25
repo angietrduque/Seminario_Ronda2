@@ -270,6 +270,6 @@ A continuación se muestra una comparación visual más útil:
 <center>
 ![Red neuronal real vs. predicción](salida2.png "Red neuronal"){width=500px}
 
-
-
 <div>
+
+# GRACIAS
