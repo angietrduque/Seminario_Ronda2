@@ -32,6 +32,10 @@ Las redes neuronales están compuestas por capas de neuronas que se comunican en
 
 # ADAPTACIÓN DE REDES NEURONALES
 
+## 
+
+<center>
+![Estructura](1.png "Red neuronal"){height=400px}
 
 ## Función base
 <div style="text-align: justify">
