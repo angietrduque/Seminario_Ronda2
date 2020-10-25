@@ -55,10 +55,26 @@ Las funciones de activación se dividen en dos tipos como: lineal y no lineal
 ![Red neuronal](funciones.jpg "Regresión local"){width=500px}
 
 <div/>
-# ENTRENAMIENTO DE REDES NEURONALES
 
-## 
+# Algoritmo back propagation
+##
+<div style="text-align: justify">
 
+1. Asignamos a cada conexión neuronal un peso con un valor pequeño, pero no nulo.
+
+2. Introducimos la primera observación de nuestro conjunto de entrenamiento por la capa inicial de la red neuronal.
+
+3. La información se propaga de izquierda a derecha, activando cada neurona que ahora es afectada por el peso de cada conexión, hasta llegar a la capa de neuronas de salida, obteniendo el resultado final para esa observación en concreto.
+
+4. Medimos el error que hemos cometido para esa observación.
+
+5. Comienza la propagación hacia atrás de derecha a izquierda, actualizando los pesos de cada conexión neuronal, dependiendo de la responsabilidad del peso actualizado en el error cometido.
+
+6. Repetimos los pasos desde el paso 2, actualizando todos los pesos para cada observación o conjunto de observaciones de nuestro conjunto de entrenamiento.
+
+7. Cuando todas las observaciones del conjunto de entrenamiento ha pasado por la red neuronal, hemos completado lo que se denomina un Epoch. Podemos realizar tantos Epochs como creamos convenientes.
+
+<div/>
 
 # ALGUNOS PROBLEMAS EN EL ENTRENAMIENTO DE LAS REDES NEURONALES
 ##
