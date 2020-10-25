@@ -8,44 +8,14 @@ output:
     smaller: true 
     transition: slower
 ---
-```{r warning=FALSE, include=F, paged.print=TRUE}
-suppressMessages(library(neuralnet))
-suppressMessages(library(NeuralNetTools))
-suppressMessages(library(dplyr))
-suppressMessages(library(readxl))
-suppressMessages(library(tidyverse))
-suppressMessages(library(FactoMineR))
-suppressMessages(library(factoextra))
-suppressMessages(library(foreign))
-suppressMessages(library(corrplot))
-suppressMessages(library(polycor))
-suppressMessages(library(psych))
-suppressMessages(library(gplots))
-suppressMessages(library(gridExtra))
-suppressMessages(library(viridis))
-suppressMessages(library(lsr))
-suppressMessages(library(DescTools))
-suppressMessages(library(magrittr))
-suppressMessages(library(nlme))
-suppressMessages(library(MASS))
-suppressMessages(library(multilevel))
-suppressMessages(library(reshape))
-suppressMessages(library(homals))
-suppressMessages(library(GGally))
-suppressMessages(library(CCA))
-suppressMessages(library(plotly))
-suppressMessages(library(broom))
-suppressMessages(library(readr))
-suppressMessages(library(readxl))
-suppressMessages(library(MASS))
-suppressMessages(library(VGAM))
-```
 
 # REDES NEURONALES
 
 ##
 Las redes neuronales artificiales son una representación abstracta del comportamiento de una red neuronal biológica. Su contexto se remonta a 1943, año en el cual McCulloch y Pitts proponen el primer modelo neuronal, dicho modelo era un modelo binario, en el cual cada neurona tenía un escalón o umbral prefijado. De esta manera sirvió de base para los modelos posteriores.
 
+<center>
+![Red neuronal](4.gif "Red neuronal"){width=500px}
 
 ## Capas
 
@@ -88,7 +58,7 @@ Las funciones de activación se dividen en dos tipos como: lineal y no lineal
 
 <div/>
 
-# Algoritmo back propagation
+# ALGORITMO BACK PROPAGATION
 ##
 <div style="text-align: justify">
 
@@ -112,10 +82,10 @@ Las funciones de activación se dividen en dos tipos como: lineal y no lineal
 ##
 <div style="text-align: justify">
 
-+ Valores iniciales:
-+ Sobreajuste:
-+ Escalado de las entradas:
-+ Número de capas y unidades ocultas
++ Valores iniciales: Se hace referencia a los valores que los pesos iniciales pueden tomar. Así, es recomendable llevar acabo una asignación de pesos pequeños generados de forma aleatoria.
++ Sobreajuste: La principales causas de los errores en los resultados de las redes neuronales se deben al sobreajuste de los datos
++ Escalado de las entradas:Respecto al escalado de las entradas se tiene que, resulta preferible estandarizar todas las entradas para que tengan una media de cero y una desviación estándar de uno.
++ Número de capas y unidades ocultas:El número de unidades ocultas está directamente relacionado con las capacidades de la red. Es decir para que el comportamiento de la red sea correcto.
 
 <div/>
 
@@ -143,11 +113,12 @@ Se hará uso del conjunto de datos denominado: "Boston" perteneciente al paquete
 
 ```{r warning=FALSE, include=T, paged.print=TRUE}
 set.seed(500)
-library(MASS)
+suppressMessages(library(MASS))
+suppressMessages(library(neuralnet))
 data <- Boston
 ```
 
-Como primera medida se verifica que no falte ningún punto de datos; de lo contrario, es necesario corregir el conjunto.
+Inicialmente se verifica que no falte ningún punto de datos; de lo contrario, es necesario corregir el conjunto.
 
 ```{r warning=FALSE, include=T, paged.print=TRUE}
 apply(data,2,function(x) sum(is.na(x)))
@@ -161,11 +132,16 @@ index <- sample(1:nrow(data),round(0.75*nrow(data)))
 train <- data[index,]
 test <- data[-index,]
 lm.fit <- glm(medv~., data=train)
-summary(lm.fit)
 pr.lm <- predict(lm.fit,test)
 MSE.lm <- sum((pr.lm - test$medv)^2)/nrow(test)
 ```
 
+##
+
+```{r warning=FALSE, include=T, paged.print=F}
+summary(lm.fit)
+
+```
 
 
 
@@ -201,10 +177,10 @@ $$13: 5: 3: 1$$
 La capa de entrada tiene 13 entradas, las dos capas ocultas tienen 5 y 3 neuronas y la capa de salida tiene, por supuesto, una única salida ya que estamos haciendo regresión.
 
 ```{r warning=FALSE, include=T, paged.print=TRUE}
-library(neuralnet)
 n <- names(train_)
 f <- as.formula(paste("medv ~", paste(n[!n %in% "medv"], collapse = " + ")))
 nn <- neuralnet(f,data=train_,hidden=c(5,3),linear.output=T)
+plot(nn)
 ```
 
 <div/>
@@ -217,9 +193,8 @@ nn <- neuralnet(f,data=train_,hidden=c(5,3),linear.output=T)
 
 El paquete neuralnet proporciona una buena herramienta para trazar el modelo. Esta es la representación gráfica del modelo con los pesos en cada conexión:
 
-```{r warning=FALSE, include=T, paged.print=TRUE}
-plot(nn)
-```
+<center>
+![Modelo red neuronal](5.png "Red neuronal"){width=900px}
 
 <div/>
 
@@ -238,6 +213,37 @@ plot(nn)
 
 + Finalmente, el algoritmo de entrenamiento ha convergido y, por lo tanto, el modelo está listo para ser utilizado.
 
+<div/>
+
+## 
+
+### **Predicción "medv" usando la red neuronal**
+
+<div style="text-align: justify">
+
+Ahora es posible predecir los valores para el conjunto de prueba y calcular el MSE.
 
 <div/>
+
+```{r warning=FALSE, include=T, paged.print=TRUE}
+pr.nn <- compute(nn,test_[,1:13])
+
+pr.nn_ <- pr.nn$net.result*(max(data$medv)-min(data$medv))+min(data$medv)
+test.r <- (test_$medv)*(max(data$medv)-min(data$medv))+min(data$medv)
+
+MSE.nn <- sum((test.r - pr.nn_)^2)/nrow(test_)
+```
+
+Se comparan los dos MSE para el modelo estimado de forma tradicional y por mediante la red neuronal:
+
+```{r warning=FALSE, include=T, paged.print=TRUE}
+print(paste(MSE.lm,MSE.nn))
+```
+
+Los resultados muestran que la red neuronal esta realizando una mejor prediccion para los "medv" que el modelo lineal.
+
+##
+### ** **
+
+
 
