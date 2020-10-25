@@ -1,0 +1,45 @@
+---
+title: "Ronda 2: Redes neuronales"
+author: "Angie Rodriguez Duque & Cesar Saavedra Vanegas"
+date: "Octubre 2020"
+output: ioslides_presentation
+---
+
+# REDES NEURONALES
+
+##
+<center>
+![Red neuronal](4.gif "Regresión local"){width=600px}
+
+## Capas
+
+Las redes neuronales están compuestas por capas de neuronas que se comunican entre si y es posible dividirlas de la siguiente manera: 
+
+<div class="columns-2">
+
+- Capa de entrada
+- Capa oculta
+- Capa de salida
+
+![Capas en redes neuronales ](3.png "Red neuronal"){width=300px}
+<div class="columns-2">
+
+# ADAPTACIÓN DE REDES NEURONALES
+
+
+## Función base
+
+
+## Función de activación
+
+
+# ENTRENAMIENTO DE REDES NEURONALES
+
+## 
+
+
+
+# APLICACIONES
+
+# EJEMPLO DE APLICACIÓN
+
