@@ -1,8 +1,12 @@
 ---
-title: "Ronda 2: Redes neuronales"
-author: "Angie Rodriguez Duque & Cesar Saavedra Vanegas"
-date: "Octubre 2020"
-output: ioslides_presentation
+title: "Redes neuronales"
+author: "Angie Rodríguez Duque & César Saavedra Vanegas"
+date: "Octubre 30 de 2020"
+output:
+  ioslides_presentation:
+    widescreen: true 
+    smaller: true 
+    transition: slower
 ---
 
 # REDES NEURONALES
@@ -30,18 +34,54 @@ Las redes neuronales están compuestas por capas de neuronas que se comunican en
 
 
 ## Función base
+<div style="text-align: justify">
+**Función lineal de tipo hiperplano:** Es una función de base cuyo valor de red corresponde a una combinación lineal de las entradas.
 
 
+$$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j}$$    
+
+
+**Función radial de tipo hiperesférico:**
+
+$$u_{i}(w,x)= \sqrt{\sum_{j=1}^{n}(x_{j}-w_{ij})^{2}}$$
+<div/>
 ## Función de activación
+<div style="text-align: justify">
+Las funciones de activación se dividen en dos tipos como: lineal y no lineal
 
+<center>
+![Red neuronal](funciones.jpg "Regresión local"){width=500px}
 
+<div/>
 # ENTRENAMIENTO DE REDES NEURONALES
 
 ## 
 
 
+# ALGUNOS PROBLEMAS EN EL ENTRENAMIENTO DE LAS REDES NEURONALES
+##
+<div style="text-align: justify">
+
++ Valores iniciales:
++ Sobreajuste:
++ Escalado de las entradas:
++ Número de capas y unidades ocultas
+
+<div/>
 
 # APLICACIONES
+##
+<div style="text-align: justify">
+
+La mayoría de las aplicaciones de las redes neuronales consisten en:
+
+**Finanzas:** Previsión de la evolución de los precios, Valoración del riesgo de los créditos, Identificación de falsificaciones, Interpretación de firmas. 
+
+**Manufacturación:** Robots automatizados y sistemas de control (visión artificial y sensores de presión, temperatura, gas, etc.), Inspección de la calidad. 
+
+**Militares:** Clasificación de las señales de radar y Reconocimiento y seguimiento en el tiro al blanco. 
+
+<div/>
 
 # EJEMPLO DE APLICACIÓN
 
