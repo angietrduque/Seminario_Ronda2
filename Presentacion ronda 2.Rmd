@@ -8,6 +8,8 @@ output: ioslides_presentation
 # REDES NEURONALES
 
 ##
+Las redes neuronales artificiales son una representación abstracta del comportamiento de una red neuronal biológica. Su contexto se remonta a 1943, año en el cual McCulloch y Pitts proponen el primer modelo neuronal, dicho modelo era un modelo binario, en el cual cada neurona tenía un escalón o umbral prefijado. De esta manera sirvió de base para los modelos posteriores.
+
 <center>
 ![Red neuronal](4.gif "Regresión local"){width=600px}
 
@@ -21,7 +23,7 @@ Las redes neuronales están compuestas por capas de neuronas que se comunican en
 - Capa oculta
 - Capa de salida
 
-![Capas en redes neuronales ](3.png "Red neuronal"){width=300px}
+![Capas en redes neuronales](3.png "Red neuronal"){width=300px}
 <div class="columns-2">
 
 # ADAPTACIÓN DE REDES NEURONALES
