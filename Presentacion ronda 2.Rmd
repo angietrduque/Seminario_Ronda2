@@ -82,10 +82,13 @@ Las funciones de activación se dividen en dos tipos como: lineal y no lineal
 ##
 <div style="text-align: justify">
 
-+ Valores iniciales: Se hace referencia a los valores que los pesos iniciales pueden tomar. Así, es recomendable llevar acabo una asignación de pesos pequeños generados de forma aleatoria.
-+ Sobreajuste: La principales causas de los errores en los resultados de las redes neuronales se deben al sobreajuste de los datos
-+ Escalado de las entradas:Respecto al escalado de las entradas se tiene que, resulta preferible estandarizar todas las entradas para que tengan una media de cero y una desviación estándar de uno.
-+ Número de capas y unidades ocultas:El número de unidades ocultas está directamente relacionado con las capacidades de la red. Es decir para que el comportamiento de la red sea correcto.
++ **Valores iniciales:** Se hace referencia a los valores que los pesos iniciales pueden tomar. Así, es recomendable llevar acabo una asignación de pesos pequeños generados de forma aleatoria.
+
++ **Sobreajuste:** La principales causas de los errores en los resultados de las redes neuronales se deben al sobreajuste de los datos
+
++ **Escalado de las entradas:** Respecto al escalado de las entradas se tiene que, resulta preferible estandarizar todas las entradas para que tengan una media de cero y una desviación estándar de uno.
+
++ **Número de capas y unidades ocultas:** El número de unidades ocultas está directamente relacionado con las capacidades de la red. Es decir para que el comportamiento de la red sea correcto.
 
 <div/>
 
@@ -272,4 +275,4 @@ A continuación se muestra una comparación visual más útil:
 
 <div>
 
-# GRACIAS
+# ¡Gracias por tu atención!
