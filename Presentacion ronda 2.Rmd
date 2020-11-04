@@ -1,7 +1,7 @@
 ---
 title: "Redes neuronales"
 author: "Angie Rodríguez Duque & César Saavedra Vanegas"
-date: "Octubre 30 de 2020"
+date: "Noviembre 06 de 2020"
 output:
   ioslides_presentation:
     widescreen: true 
@@ -10,57 +10,123 @@ output:
 ---
 
 ## Introducción
+<div style="text-align: justify">
+
+Las redes neuronales (neural networks) se enmarcan dentro del campo de la Inteligencia Artificial.
 
 Las redes neuronales artificiales son una representación abstracta del comportamiento de una red neuronal biológica. Su contexto se remonta a 1943, año en el cual McCulloch y Pitts proponen el primer modelo neuronal, dicho modelo era un modelo binario, en el cual cada neurona tenía un escalón o umbral prefijado. De esta manera sirvió de base para los modelos posteriores.
 
 <center>
-![Red neuronal](4.gif "Red neuronal"){width=500px}
+![](4.gif "Red neuronal"){width=500px}
+<div>
+
+## Red neuronal
+
+<div style="text-align: justify">
+
+Las neuronas son simples procesadores de información, consisten en un cuerpo celular y cables que los conectan entre si.Sus partes son:
+
++ **Dendritas:** Constituyen el canal de entrada de la información.
+- **Cuerpo celular (Soma):** Es el órgano de cómputo.
++ **Axón:** Corresponde al canal de salida.
+- **Sinapsis**
+
+<div class="columns-2">
+
+<center>
+![](red1.png "Red neuronal"){height=300px}
+<center>
+![](red2.gif "Red neuronal"){height=250px}
+
+<div class="columns-2">
+
+<div>
+
+## Redes neuronales
+
+<div style="text-align: justify">
+<center>
+![](simple_profunda.png "Red neuronal"){height=250px}
+
+
+## Estructura
+
+<div style="text-align: justify">
+
++ **Entradas $(x_{i})$:**
+
+- **Pesos sinapticos $(w_{ij})$:** Se hace una asignación de pesos pequeños generados de forma aleatoria, en un rango de valores entre $-0.5$ y $0.5$ o algo similar
+
++ **Bias $(b)$:** Ayuda a mover la línea que divide los datos de cada neurona, si el valor de $b$ es cero, la línea pasa por el origen, dependiendo del numero que tenga este paremetro es por donde pasara la línea que divide a los datos.
+
++ **Función base:** Es una función que corresponde a una combinación lineal de las entradas.
+
+$$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j} \longrightarrow z=b+\sum_{j=1}^{n}w_{ij}x_{j} $$
+
+
+- **Función de activación $(\sigma(z))$:**
+
++
+
+<div>
+
+## Estructura
+
+<center>
+![](1.png "Red neuronal"){height=400px}
 
 ## Capas
-
-Las redes neuronales están compuestas por capas de neuronas que se comunican entre si y es posible dividirlas de la siguiente manera: 
+<div style="text-align: justify">
+Las redes neuronales están compuestas por capas de neuronas que se comunican entre si y es posible dividirlas de la siguiente manera:
 
 <div class="columns-2">
 
-- Capa de entrada
-- Capa oculta
-- Capa de salida
+- **Capa de entrada:** Contiene todas nuestras entradas o datos de entrenamiento, estos contarán con pesos que permitirán expresar su importancia.
 
-![Capas en redes neuronales](3.png "Red neuronal"){width=300px}
-<div class="columns-2">
+- **Capa oculta:** Puede estar conformada a su vez por una o varias capas, el número de capas dependerá de qué tan sofisticado queremos nuestro modelo. Sin embargo, es necesario recalcar que mientras más capas se tengan necesitaremos más recursos como tiempo y poder computacional.
 
-# Adaptación de redes neuronales
-## 
+- **Capa de salida:** Se encarga de entregar los resultados, puede contar con una o varias neuronas, dependerá del número de características que se desean llegar a encontrar.
+
+<div>
 
 <center>
-![Estructura](1.png "Red neuronal"){height=400px}
+![Capas en redes neuronales](3.png "Red neuronal"){width=400px}
+<div class="columns-2">
 
-## Función base
-<div style="text-align: justify">
-**Función lineal de tipo hiperplano:** Es una función de base cuyo valor de red corresponde a una combinación lineal de las entradas.
-
-
-$$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j}$$    
-
-
-**Función radial de tipo hiperesférico:**
-
-$$u_{i}(w,x)= \sqrt{\sum_{j=1}^{n}(x_{j}-w_{ij})^{2}}$$
-<div/>
 ## Función de activación
 <div style="text-align: justify">
+
+**Nota:** Se debe considerar que en la red neuronal se usará una función no lineal debido a que le permite al modelo adaptarse para trabajar con la mayor cantidad de datos.
+
 Las funciones de activación se dividen en dos tipos como: lineal y no lineal
 
-<center>
-![Red neuronal](funciones.jpg "Regresión local"){width=500px}
+<div class="columns-2">
 
-<div/>
++ **Función lineal**
+
+- **Funciones no lineales:**
+
+    + Sigmoide
+    
+    - Umbral
+    
+    + Tangente hiperbólica
+    
+    - ReLu
+    
+    + Softmax
+    
+
+<center>
+![](funciones.jpg "Regresión local"){width=400px}
+
+<div class="columns-2">
 
 # Aprendizaje automático
-##
+
 <div style="text-align: justify">
 
-### **Algoritmo Backpropagation**
+## **Algoritmo Backpropagation**
 
 1. Asignamos a cada conexión neuronal un peso con un valor pequeño, pero no nulo.
 
@@ -272,6 +338,24 @@ A continuación se muestra una comparación visual más útil:
 
 <center>
 ![Red neuronal real vs. predicción](salida2.png "Red neuronal"){width=500px}
+
+<div>
+
+## Bibliografía
+
+<div style="text-align: justify">
+
++ Hastie, T., Tibshirani, R., & Friedman, J. (2009). The elements of statistical learning: data mining, inference, and prediction. Springer Science & Business Media.
+
+- Efron, B., & Hastie, T. (2016). Computer age statistical inference (Vol. 5). Cambridge University Press.
+
++
+
+-
+
++
+
+-
 
 <div>
 
