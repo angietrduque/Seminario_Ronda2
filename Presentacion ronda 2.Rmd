@@ -12,9 +12,7 @@ output:
 ## Introducción
 <div style="text-align: justify">
 
-Las redes neuronales (neural networks) se enmarcan dentro del campo de la Inteligencia Artificial.
-
-Las redes neuronales artificiales son una representación abstracta del comportamiento de una red neuronal biológica. Su contexto se remonta a 1943, año en el cual McCulloch y Pitts proponen el primer modelo neuronal, dicho modelo era un modelo binario, en el cual cada neurona tenía un escalón o umbral prefijado. De esta manera sirvió de base para los modelos posteriores.
+Las redes neuronales (neural networks) se enmarcan dentro del campo de la Inteligencia Artificial. Son una representación abstracta del comportamiento de una red neuronal biológica. Su contexto se remonta a 1943, año en el cual McCulloch y Pitts proponen el primer modelo neuronal, dicho modelo era un modelo binario, en el cual cada neurona tenía un escalón o umbral prefijado. De esta manera sirvió de base para los modelos posteriores.
 
 <center>
 ![](4.gif "Red neuronal"){width=500px}
@@ -45,34 +43,9 @@ Las neuronas son simples procesadores de información, consisten en un cuerpo ce
 ## Redes neuronales
 
 <div style="text-align: justify">
+
 <center>
 ![](simple_profunda.png "Red neuronal"){height=250px}
-
-## Estructura
-
-<center>
-![](gif1.gif "Red neuronal"){height=400px}
-
-## Estructura
-
-<div style="text-align: justify">
-
-+ **Entradas $(x_{i})$:**
-
-- **Pesos sinapticos $(w_{ij})$:** Se hace una asignación de pesos pequeños generados de forma aleatoria, en un rango de valores entre $-0.5$ y $0.5$ o algo similar
-
-+ **Bias $(b)$:** Ayuda a mover la línea que divide los datos de cada neurona, si el valor de $b$ es cero, la línea pasa por el origen, dependiendo del numero que tenga este paremetro es por donde pasara la línea que divide a los datos.
-
-+ **Función base:** Es una función que corresponde a una combinación lineal de las entradas.
-
-$$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j} \longrightarrow z=b+\sum_{j=1}^{n}w_{ij}x_{j} $$
-
-
-- **Función de activación $(\sigma(z))$:**
-
-+
-
-<div>
 
 ## Estructura
 
@@ -97,7 +70,53 @@ Las redes neuronales están compuestas por capas de neuronas que se comunican en
 ![Capas en redes neuronales](3.png "Red neuronal"){width=400px}
 <div class="columns-2">
 
-## Función de activación
+## Entradas, pesos, suma ponderada y salida
+
+<div class="columns-2">
+
+<div style="text-align: justify">
+
++ **Entradas $(x_{i})$:**
+
+- **Pesos sinapticos $(w_{ij})$:** Se hace una asignación de pesos pequeños generados de forma aleatoria, en un rango de valores entre $-0.5$ y $0.5$ o algo similar
+
++ **Función base:** Es una función que corresponde a una combinación lineal de las entradas.
+
+$$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j}$$
+
+<center>
+
+![](gif1.gif "Red neuronal"){height=250px}
+
+<center>
+
+<div>
+
+<div class="columns-2">
+
+## Sesgo "Bias" $(b, w_{0})$
+
+<div class="columns-2">
+
+<div style="text-align: justify">
+
+Ayuda a mover la línea que divide los datos de cada neurona, si el valor de $b$ es cero, la línea pasa por el origen, dependiendo del numero que tenga este paremetro es por donde pasara la línea que divide a los datos.
+
+$$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j} \longrightarrow z=b+\sum_{j=1}^{n}w_{ij}x_{j} $$
+
+<center>
+
+![](gif_sesgo.gif "Red neuronal"){height=250px}
+
+<div class="columns-2">
+
+## Función de activación $\sigma(z)$
+<div style="text-align: justify">
+
+<center>
+![](gif_activacion.gif "Red neuronal"){height=400px}
+
+## Función de activación $\sigma(z)$
 <div style="text-align: justify">
 
 **Nota:** Se debe considerar que en la red neuronal se usará una función no lineal debido a que le permite al modelo adaptarse para trabajar con la mayor cantidad de datos.
@@ -126,6 +145,8 @@ Las funciones de activación se dividen en dos tipos como: lineal y no lineal
 
 <div class="columns-2">
 
+<div>
+
 # Aprendizaje automático
 
 <div style="text-align: justify">
@@ -150,15 +171,34 @@ Las funciones de activación se dividen en dos tipos como: lineal y no lineal
 
 # Algunos problemas en el entrenamiento de las redes neuronales
 ##
+
+<div class="columns-2">
+
 <div style="text-align: justify">
 
 + **Valores iniciales:** Se hace referencia a los valores que los pesos iniciales pueden tomar. Así, es recomendable llevar acabo una asignación de pesos pequeños generados de forma aleatoria.
 
+$$w_{ij} \in (-0.5,0.5)$$
+
 + **Sobreajuste:** También denominado "overfitting", se produce cuando un sistema de aprendizaje automático se entrena demasiado o con datos anómalos, que hace que el algoritmo aprenda patrones que no son generales.
 
-+ **Escalado de las entradas:** Respecto al escalado de las entradas se tiene que, resulta preferible estandarizar todas las entradas para que tengan una media de cero y una desviación estándar de uno.
+<center>
+
+![](overfitting.png "Red neuronal"){height=180px}
+<center>
+
+<div style="text-align: justify">
+
++ **Escalado de las entradas:** Es preferible estandarizar todas las entradas para que tengan una media de cero y una desviación estándar de uno.
+
+$$\tilde{x}_{i}=\displaystyle{\frac{(x_{i}-\bar{x}_{i})}{sd}}$$
 
 + **Número de capas y unidades ocultas:** El número de unidades ocultas está directamente relacionado con las capacidades de la red. En general, es mejor tener demasiadas unidades ocultas que muy pocas.
+
+<center>
+![](simple_profunda.png "Red neuronal"){width=450px}
+
+<div class="columns-2">
 
 <div/>
 
