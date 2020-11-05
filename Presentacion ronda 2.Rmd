@@ -29,14 +29,10 @@ Las neuronas son simples procesadores de información, consisten en un cuerpo ce
 + **Axón:** Corresponde al canal de salida.
 - **Sinapsis**
 
-<div class="columns-2">
 
-<center>
-![](red1.png "Red neuronal"){height=300px}
+
 <center>
 ![](red2.gif "Red neuronal"){height=250px}
-
-<div class="columns-2">
 
 <div>
 
@@ -100,7 +96,7 @@ $$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j}$$
 
 <div style="text-align: justify">
 
-Ayuda a mover la línea que divide los datos de cada neurona, si el valor de $b$ es cero, la línea pasa por el origen, dependiendo del numero que tenga este paremetro es por donde pasara la línea que divide a los datos.
+Ayuda a mover la línea que divide los datos de cada neurona, si el valor de $b$ es cero, la línea pasa por el origen, dependiendo del numero que tenga este parámetro es por donde pasara la línea que divide a los datos.
 
 $$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j} \longrightarrow z=b+\sum_{j=1}^{n}w_{ij}x_{j} $$
 
@@ -231,15 +227,6 @@ suppressMessages(library(neuralnet))
 data <- Boston # Este set de datos pertenece 
                # a la librerías MASS, es un conjunto de datos de pruebas que ésta posee
 ```
-
-Inicialmente se verifica que no falte ningún punto de datos; de lo contrario, es necesario corregir el conjunto.
-
-```{r warning=FALSE, include=T, paged.print=TRUE}
-apply(data,2,function(x) sum(is.na(x)))
-```
-<div/>
-
-##
 
 ```{r warning=FALSE, include=T, paged.print=F}
 index <- sample(1:nrow(data),round(0.75*nrow(data)))# se toma una muestra aleatoria
