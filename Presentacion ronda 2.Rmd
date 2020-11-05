@@ -184,7 +184,8 @@ Se hará uso del conjunto de datos denominado: "Boston" perteneciente al paquete
 set.seed(500)
 suppressMessages(library(MASS))
 suppressMessages(library(neuralnet))
-data <- Boston
+data <- Boston # Este set de datos pertenece 
+               # a la librerías MASS, es un conjunto de datos de pruebas que ésta posee
 ```
 
 Inicialmente se verifica que no falte ningún punto de datos; de lo contrario, es necesario corregir el conjunto.
@@ -197,9 +198,9 @@ apply(data,2,function(x) sum(is.na(x)))
 ##
 
 ```{r warning=FALSE, include=T, paged.print=F}
-index <- sample(1:nrow(data),round(0.75*nrow(data)))
-train <- data[index,]
-test <- data[-index,]
+index <- sample(1:nrow(data),round(0.75*nrow(data)))# se toma una muestra aleatoria
+train <- data[index,] # función de entrenamiento
+test <- data[-index,] # función de prueba
 lm.fit <- glm(medv~., data=train)
 pr.lm <- predict(lm.fit,test)
 MSE.lm <- sum((pr.lm - test$medv)^2)/nrow(test)
@@ -224,8 +225,8 @@ Se elige el método min-max y se escalan los datos en el intervalo [0,1]. Normal
 
 
 ```{r warning=FALSE, include=T, paged.print=TRUE}
-maxs <- apply(data, 2, max) 
-mins <- apply(data, 2, min)
+maxs <- apply(data, 2, max) #valores máximos para el entrenamiento
+mins <- apply(data, 2, min) #valores mínimos para el entrenamiento
 scaled <- as.data.frame(scale(data, center = mins, scale = maxs - mins))
 train_ <- scaled[index,]
 test_ <- scaled[-index,]
@@ -249,6 +250,7 @@ La capa de entrada tiene 13 entradas, las dos capas ocultas tienen 5 y 3 neurona
 n <- names(train_)
 f <- as.formula(paste("medv ~", paste(n[!n %in% "medv"], collapse = " + ")))
 nn <- neuralnet(f,data=train_,hidden=c(5,3),linear.output=T)
+# Red neuronal
 plot(nn)
 ```
 
