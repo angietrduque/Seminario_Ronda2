@@ -48,6 +48,10 @@ Las neuronas son simples procesadores de información, consisten en un cuerpo ce
 <center>
 ![](simple_profunda.png "Red neuronal"){height=250px}
 
+## Estructura
+
+<center>
+![](gif1.gif "Red neuronal"){height=400px}
 
 ## Estructura
 
