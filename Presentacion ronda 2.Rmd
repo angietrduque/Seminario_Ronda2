@@ -4,9 +4,10 @@ author: "Angie Rodríguez Duque & César Saavedra Vanegas"
 date: "Noviembre 06 de 2020"
 output:
   ioslides_presentation:
-    widescreen: true 
-    smaller: true 
+    widescreen: yes
+    smaller: yes
     transition: slower
+  beamer_presentation: default
 ---
 
 ## Introducción
@@ -226,6 +227,10 @@ La mayoría de las aplicaciones de las redes neuronales consisten en:
 **Manufacturación:** Robots automatizados y sistemas de control (visión artificial y sensores de presión, temperatura, gas, etc.), Inspección de la calidad. 
 
 **Militares:** Clasificación de las señales de radar y Reconocimiento y seguimiento en el tiro al blanco. 
+
+**Medicina:** Clasificación de imágenes para detectar células cancerígenas. 
+
+**Medio ambiente:** Analizar tendencias y patrones.
 
 <div/>
 
