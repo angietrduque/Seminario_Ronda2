@@ -163,25 +163,17 @@ Las funciones de activación se dividen en dos tipos como: lineal y no lineal
 
 # Aprendizaje automático
 
+
+## **¿Cómo entrenar una red neuronal?**
 <div style="text-align: justify">
 
-## **Algoritmo Backpropagation**
+Se trata de un proceso iterativo de “ir y venir” por las capas de neuronas.
 
-1. Asignamos a cada conexión neuronal un peso con un valor pequeño, pero no nulo.
++ **Forwardpropagation:** Se expone la red a los datos de entrenamiento y estos cruzan toda la red neuronal para ser calculadas sus predicciones (labels). Es decir, pasar los datos de entrada a través de la red de tal manera que todas las neuronas apliquen su transformación a la información que reciben de las neuronas de la capa anterior y la envíen a las neuronas de la capa siguiente. Cuando los datos hayan cruzado todas las capas, y todas sus neuronas han realizado sus cálculos, se llegará a la capa final con un resultado de predicción de la label para aquellos ejemplos de entrada. 
 
-2. Introducimos la primera observación de nuestro conjunto de entrenamiento por la capa inicial de la red neuronal.
+- **Función de Loss:** Se usa para estimar el error, para comparar y medir qué tan bueno/malo fue el resultado de la predicción en relación con el resultado correcto. Idealmente, queremos que nuestro coste sea cero, es decir, sin divergencia entre valor estimado y el esperado. Por eso a medida que se entrena el modelo se irán ajustando los pesos de las interconexiones de las neuronas de manera automática hasta obtener buenas predicciones.
 
-3. La información se propaga de izquierda a derecha, activando cada neurona que ahora es afectada por el peso de cada conexión, hasta llegar a la capa de neuronas de salida, obteniendo el resultado final para esa observación en concreto.
-
-4. Medimos el error que hemos cometido para esa observación.
-
-5. Comienza la propagación hacia atrás de derecha a izquierda, actualizando los pesos de cada conexión neuronal, dependiendo de la responsabilidad del peso actualizado en el error cometido.
-
-6. Repetimos los pasos desde el paso 2, actualizando todos los pesos para cada observación o conjunto de observaciones de nuestro conjunto de entrenamiento.
-
-7. Cuando todas las observaciones del conjunto de entrenamiento ha pasado por la red neuronal, hemos completado lo que se denomina un Epoch. Podemos realizar tantos Epochs como creamos convenientes.
-
-<div/>
++ **Backpropagation:** Partiendo de la capa de salida, esa información de loss se propaga hacia todas las neuronas de la capa oculta que contribuyen directamente a la salida. Sin embargo las neuronas de la capa oculta solo reciben una fracción de la señal total de la loss, basándose aproximadamente en la contribución relativa que haya aportado cada neurona a la salida original.
 
 ## **Aprendizaje automático**
 
