@@ -12,33 +12,47 @@ output:
 ## Introducción
 <div style="text-align: justify">
 
-Las redes neuronales (neural networks) se enmarcan dentro del campo de la Inteligencia Artificial. Son una representación abstracta del comportamiento de una red neuronal biológica. Su contexto se remonta a 1943, año en el cual McCulloch y Pitts proponen el primer modelo neuronal, dicho modelo era un modelo binario, en el cual cada neurona tenía un escalón o umbral prefijado. De esta manera sirvió de base para los modelos posteriores.
+Una de las ramas más importantes del Machine Learning y la Inteligencia Artificial son las redes neuronales. Las redes neuronales (neural networks) son una representación abstracta del comportamiento de una red neuronal biológica. Su contexto se remonta a 1943, año en el cual McCulloch y Pitts proponen el primer modelo neuronal, dicho modelo era un modelo binario, en el cual cada neurona tenía un escalón o umbral prefijado. De esta manera sirvió de base para los modelos posteriores.
 
 <center>
 ![](4.gif "Red neuronal"){width=500px}
 <div>
 
-## Red neuronal
+## Conceptos
 
 <div style="text-align: justify">
 
-Las neuronas son simples procesadores de información, consisten en un cuerpo celular y cables que los conectan entre si.Sus partes son:
+**Neurona biológica:** Es una célula del sistema nervioso central que posee la capacidad de recibir y decodificar información en forma de señales eléctricas y químicas, transmitiéndolas a otras células.
+
+**Neurona artificial:** Es la unidad básica de una red neuronal, tratan de imitar el funcionamiento de las neuronas de los organismos vivos.
+
+**Red Neuronal:** Son un modelo inspirado en el comportamiento biológico. Consiste en un conjunto de neuronas artificiales, conectadas entre sí para transmitir señales.
+
+<div class="columns-2">
+Sus partes son:
 
 + **Dendritas:** Constituyen el canal de entrada de la información.
-- **Cuerpo celular (Soma):** Es el órgano de cómputo.
-+ **Axón:** Corresponde al canal de salida.
-- **Sinapsis**
 
+- **Sinapsis:** Conexión entre neuronas.
 
++ **Cuerpo celular (Soma):** Es el órgano de cómputo.
+
+- **Axón:** Corresponde al canal de salida.
 
 <center>
 ![](red2.gif "Red neuronal"){height=250px}
-
-<div>
+<div class="columns-2">
 
 ## Redes neuronales
 
 <div style="text-align: justify">
+
+De acuerdo a su estructura las redes neuronales se clasifican en:
+
++ **Redes monocapa:** Compuestas por una única capa de neuronas.
+
+- **Redes multicapa:** Las neuronas se organizan en varias capas.
+
 
 <center>
 ![](simple_profunda.png "Red neuronal"){height=250px}
@@ -72,17 +86,20 @@ Las redes neuronales están compuestas por capas de neuronas que se comunican en
 
 <div style="text-align: justify">
 
-+ **Entradas $(x_{i})$:**
++ **Entradas $(x_{j})$:** Las entradas reciben los datos de otras neuronas.
 
-- **Pesos sinapticos $(w_{ij})$:** Se hace una asignación de pesos pequeños generados de forma aleatoria, en un rango de valores entre $-0.5$ y $0.5$ o algo similar
+- **Pesos sinápticos $(w_{ij})$:** Se hace una asignación de pesos pequeños generados de forma aleatoria, en un rango de valores entre $-0.5$ y $0.5$ o algo similar.
 
-+ **Función base:** Es una función que corresponde a una combinación lineal de las entradas.
++ **Función base:** Es una función que corresponde a una combinación lineal del conjunto de entradas y los pesos sinápticos. Es decir:
 
 $$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j}$$
 
+$i=1,...,m$ $j=1,...,n$
+
+
 <center>
 
-![](gif1.gif "Red neuronal"){height=250px}
+![](gif1.gif "Red neuronal"){height=280px}
 
 <center>
 
@@ -96,7 +113,7 @@ $$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j}$$
 
 <div style="text-align: justify">
 
-Ayuda a mover la línea que divide los datos de cada neurona, si el valor de $b$ es cero, la línea pasa por el origen, dependiendo del numero que tenga este parámetro es por donde pasara la línea que divide a los datos.
+Ayuda a mover la línea que divide los datos de cada neurona, si el valor de $b$ es cero, la línea pasa por el origen, dependiendo del número que tenga este parámetro es por donde pasará la línea que divide a los datos.
 
 $$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j} \longrightarrow z=b+\sum_{j=1}^{n}w_{ij}x_{j} $$
 
@@ -213,10 +230,10 @@ La mayoría de las aplicaciones de las redes neuronales consisten en:
 <div/>
 
 # Ejemplo de aplicación
-##
+
 <div style="text-align: justify">
 
-### **El conjunto de datos**
+## **Datos**
 
 Se hará uso del conjunto de datos denominado: "Boston" perteneciente al paquete MASS. El conjunto de datos de Boston es una colección de datos sobre el valor de las viviendas en los suburbios de Boston. Nuestro objetivo es predecir el valor medio de las viviendas ocupadas por sus propietarios (medv) utilizando todas las demás variables continuas disponibles.
 
@@ -244,11 +261,7 @@ summary(lm.fit)
 
 ```
 
-
-
-##
-
-### **Adaptación de la red neuronal**
+## **Adaptación de la red neuronal**
 
 Antes de instalar una red neuronal, es necesario realizar algunos preparativos. Como primer paso, se aborda el preprocesamiento de datos. Aquí se normalizan los datos antes de entrenar la red neuronal.
 
@@ -265,9 +278,15 @@ test_ <- scaled[-index,]
 
 + **Nota:** Tener en cuenta que *scale* devuelve una matriz que necesita ser convertida en un data.frame.
 
-## 
+## **Adaptación de la red neuronal**
 
-### **Parámetros**
+
+
+<center>
+
+![](normalizacion.png "Red neuronal"){height=320px}
+
+## **Parámetros**
 
 <div style="text-align: justify">
 
@@ -287,9 +306,7 @@ plot(nn)
 
 <div/>
 
-## 
-
-### **Representación gráfica**
+## **Representación gráfica**
 
 <div style="text-align: justify">
 
