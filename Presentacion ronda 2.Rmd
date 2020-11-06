@@ -183,6 +183,12 @@ Las funciones de activación se dividen en dos tipos como: lineal y no lineal
 
 <div/>
 
+## **Aprendizaje automático**
+
+<center>
+
+![](back.png "Red neuronal"){height=400px}
+
 # Algunos problemas en el entrenamiento de las redes neuronales
 ##
 
