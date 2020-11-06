@@ -399,13 +399,6 @@ A continuación se muestra una comparación visual más útil:
 
 - Efron, B., & Hastie, T. (2016). Computer age statistical inference (Vol. 5). Cambridge University Press.
 
-+
-
--
-
-+
-
--
 
 <div>
 
