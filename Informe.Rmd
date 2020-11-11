@@ -14,8 +14,6 @@ Una de las ramas más importantes del Machine Learning y la Inteligencia Artific
 
 Al igual que una neurona biológica, una neurona artificial trata de imitar el comportamiento y funcionamiento de las neuronas de los organismos vivos. Al igual que una neurona biológica su estructura se encuentra compuesta por distintas capas y es posible agrupar multiples neuronas para en conjunto formar una red neuronal que permita formar una red neuronal, conectadas entre si y de forma que se puedan transmitir señales para lograr realizar calculos mas complejos. De esta forma damos paso a la estructura y cada una de sus componentes.
 
-<center>
-![](red2.gif "Red neuronal"){height=250px}
 
 # Estructura
 
@@ -58,9 +56,6 @@ Se usa para estimar el error, para comparar y medir qué tan bueno/malo fue el r
 ### Backpropagation
 Partiendo de la capa de salida, esa información de loss se propaga hacia todas las neuronas de la capa oculta que contribuyen directamente a la salida. Sin embargo las neuronas de la capa oculta solo reciben una fracción de la señal total de la loss, basándose aproximadamente en la contribución relativa que haya aportado cada neurona a la salida original.
 
-<center>
-
-![](back.png "Red neuronal"){height=400px}
 
 # Problemas en las redes neuronales
 
@@ -83,6 +78,23 @@ Antes de instalar una red neuronal, es necesario realizar algunos preparativos. 
 Se elige el método min-max y se escalan los datos en el intervalo [0,1]. Normalmente, el escalado en los intervalos [0,1] o [-1,1] tiende a dar mejores resultados. Por lo tanto, escalamos y dividimos los datos antes de continuar:
 
 ```{r warning=FALSE, include=T, paged.print=TRUE}
+set.seed(500)
+suppressMessages(library(MASS))
+suppressMessages(library(neuralnet))
+data <- Boston # Este set de datos pertenece 
+               # a la librerías MASS, es un conjunto de datos de pruebas que ésta posee
+```
+
+```{r warning=FALSE, include=T, paged.print=F}
+index <- sample(1:nrow(data),round(0.75*nrow(data)))# se toma una muestra aleatoria
+train <- data[index,] # función de entrenamiento
+test <- data[-index,] # función de prueba
+lm.fit <- glm(medv~., data=train)
+pr.lm <- predict(lm.fit,test)
+MSE.lm <- sum((pr.lm - test$medv)^2)/nrow(test)
+```
+
+```{r warning=FALSE, include=T, paged.print=TRUE}
 maxs <- apply(data, 2, max) #valores máximos para el entrenamiento
 mins <- apply(data, 2, min) #valores mínimos para el entrenamiento
 scaled <- as.data.frame(scale(data, center = mins, scale = maxs - mins))
@@ -102,14 +114,12 @@ La capa de entrada tiene 13 entradas, las dos capas ocultas tienen 5 y 3 neurona
 n <- names(train_)
 f <- as.formula(paste("medv ~", paste(n[!n %in% "medv"], collapse = " + ")))
 nn <- neuralnet(f,data=train_,hidden=c(5,3),linear.output=T)
-# Red neuronal
-plot(nn)
 ```
 
 De esta manera, la representación gráfica del modelo con los pesos en cada conexión es la siguiente:
 
 <center>
-![Modelo red neuronal](5.png "Red neuronal"){width=900px}
+![Modelo red neuronal](5.png "Red neuronal"){width=700px}
 
 
 A partir de la figura anterior es posible identificar:
