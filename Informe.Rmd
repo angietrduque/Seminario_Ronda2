@@ -21,11 +21,26 @@ Al igual que una neurona biológica, una neurona artificial trata de imitar el c
 
 ### Capas
 
+Las redes neuronales están compuestas por capas de neuronas que se comunican entre si y es posible dividirlas de la siguiente manera:
+
+- **Capa de entrada:** Contiene todas nuestras entradas o datos de entrenamiento, estos contarán con pesos que permitirán expresar su importancia.
+
+- **Capa oculta:** La capa oculta puede estar conformada por una o varias capas, el número de capas dependerá de qué tan sofisticado queremos nuestro modelo. Sin embargo, es necesario recalcar que mientras más capas se tengan necesitaremos más recursos como tiempo y poder computacional.
+
+- **Capa de salida:** Se encarga de entregar los resultados, puede contar con una o varias neuronas, dependerá del número de características que se desean llegar a encontrar.
+
+
 ### Entradas
 
 ### Sesgo
 
 ### Pesos
+
+De acuerdo a su estructura las redes neuronales se clasifican en:
+
++ **Redes monocapa:** Compuestas por una única capa de neuronas.
+
+- **Redes multicapa:** Las neuronas se organizan en varias capas.
 
 ### Función de activación
 
@@ -49,16 +64,60 @@ Partiendo de la capa de salida, esa información de loss se propaga hacia todas 
 
 # Problemas en las redes neuronales
 
-### Valores iniciales
-Se hace referencia a los valores que los pesos iniciales pueden tomar. Así, es recomendable llevar acabo una asignación de pesos pequeños generados de forma aleatoria.
+**Valores iniciales:** Hace referencia a los valores que los pesos iniciales pueden tomar. Así, es recomendable llevar acabo una asignación de pesos pequeños generados de forma aleatoria.
 
-### Sobreajuste
-También denominado "overfitting", se produce cuando un sistema de aprendizaje automático se entrena demasiado o con datos anómalos, que hace que el algoritmo aprenda patrones que no son generales.
+**Sobreajuste:** También denominado "overfitting", se produce cuando un sistema de aprendizaje automático se entrena demasiado o con datos anómalos, que hace que el algoritmo aprenda patrones que no son generales.
 
-### Capas y unidades ocultas
-El número de unidades ocultas está directamente relacionado con las capacidades de la red. En general, es mejor tener demasiadas unidades ocultas que muy pocas.
+**Escalado de las entradas:** Es recomendable estandarizar todas las entradas para que tengan una media de cero y una desviación estándar de uno.
+
+**Capas y unidades ocultas:** El número de unidades ocultas está directamente relacionado con las capacidades de la red. En general, es mejor tener demasiadas unidades ocultas que muy pocas.
 
 # Ejemplo de aplicación
 
 Se hará uso del conjunto de datos denominado: "Boston" perteneciente al paquete MASS. El conjunto de datos de Boston es una colección de datos sobre el valor de las viviendas en los suburbios de Boston. Nuestro objetivo es predecir el valor medio de las viviendas ocupadas por sus propietarios (medv) utilizando todas las demás variables continuas disponibles, esto mediante un modelo de regresión y una red neuronal.
 
+## Adaptación de la red neuronal 
+
+Antes de instalar una red neuronal, es necesario realizar algunos preparativos. Como primer paso, se aborda el preprocesamiento de datos. Aquí se normalizan los datos antes de entrenar la red neuronal.
+
+Se elige el método min-max y se escalan los datos en el intervalo [0,1]. Normalmente, el escalado en los intervalos [0,1] o [-1,1] tiende a dar mejores resultados. Por lo tanto, escalamos y dividimos los datos antes de continuar:
+
+```{r warning=FALSE, include=T, paged.print=TRUE}
+maxs <- apply(data, 2, max) #valores máximos para el entrenamiento
+mins <- apply(data, 2, min) #valores mínimos para el entrenamiento
+scaled <- as.data.frame(scale(data, center = mins, scale = maxs - mins))
+train_ <- scaled[index,]
+test_ <- scaled[-index,]
+```
+
+## Parámetros
+
+En esta ocasión, vamos a utilizar 2 capas ocultas con esta configuración:
+
+$$13:5:3:1$$
+
+La capa de entrada tiene 13 entradas, las dos capas ocultas tienen 5 y 3 neuronas y la capa de salida tiene, por supuesto, una única salida ya que estamos haciendo regresión.
+
+```{r warning=FALSE, include=T, paged.print=TRUE}
+n <- names(train_)
+f <- as.formula(paste("medv ~", paste(n[!n %in% "medv"], collapse = " + ")))
+nn <- neuralnet(f,data=train_,hidden=c(5,3),linear.output=T)
+# Red neuronal
+plot(nn)
+```
+
+De esta manera, la representación gráfica del modelo con los pesos en cada conexión es la siguiente:
+
+<center>
+![Modelo red neuronal](5.png "Red neuronal"){width=900px}
+
+
+A partir de la figura anterior es posible identificar:
+
++ Las líneas negras muestran las conexiones entre cada capa y los pesos en cada conexión.
+
+- Las líneas azules muestran el término de sesgo agregado en cada paso.
+
++ El sesgo se puede pensar como la intersección de un modelo lineal.
+
+- Finalmente, el algoritmo de entrenamiento ha convergido y, por lo tanto, el modelo está listo para ser utilizado.
