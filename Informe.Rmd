@@ -40,6 +40,9 @@ De acuerdo a su estructura las redes neuronales se clasifican en:
 
 - **Redes multicapa:** Las neuronas se organizan en varias capas.
 
+<center>
+![Estructura](1.png "Red neuronal"){width=500px}
+
 ### Función de activación
 
 ### Salidas
@@ -55,6 +58,9 @@ Se usa para estimar el error, para comparar y medir qué tan bueno/malo fue el r
 
 ### Backpropagation
 Partiendo de la capa de salida, esa información de loss se propaga hacia todas las neuronas de la capa oculta que contribuyen directamente a la salida. Sin embargo las neuronas de la capa oculta solo reciben una fracción de la señal total de la loss, basándose aproximadamente en la contribución relativa que haya aportado cada neurona a la salida original.
+
+<center>
+![Aprendizaje automático](back.png "Red neuronal"){width=500px}
 
 
 # Problemas en las redes neuronales
