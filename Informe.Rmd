@@ -12,7 +12,7 @@ Una de las ramas más importantes del Machine Learning y la Inteligencia Artific
 
 ### Conceptos
 
-Al igual que una neurona biológica, una neurona artificial trata de imitar el comportamiento y funcionamiento de las neuronas de los organismos vivos. Al igual que una neurona biológica su estructura se encuentra compuesta por distintas capas y es posible agrupar multiples neuronas para en conjunto formar una red neuronal que permita formar una red neuronal, conectadas entre si y de forma que se puedan transmitir señales para lograr realizar calculos mas complejos. De esta forma damos paso a la estructura y cada una de sus componentes.
+Al igual que una neurona biológica, una neurona artificial trata de imitar el comportamiento y funcionamiento de las neuronas de los organismos vivos. Se encuentra compuesta por distintas capas y es posible agrupar multiples neuronas para en conjunto formar una red neuronal que permita formar una red neuronal, conectadas entre si y de forma que se puedan transmitir señales para lograr realizar calculos mas complejos. De esta forma damos paso a la estructura y cada una de sus componentes.
 
 
 # Estructura
@@ -28,9 +28,21 @@ Las redes neuronales están compuestas por capas de neuronas que se comunican en
 - **Capa de salida:** Se encarga de entregar los resultados, puede contar con una o varias neuronas, dependerá del número de características que se desean llegar a encontrar.
 
 
-### Entradas
+### Entradas, pesos, suma ponderada y salida
+
++ **Entradas $(x_{j})$:** Las entradas reciben los datos de otras neuronas.
+
+- **Pesos sinápticos $(w_{ij})$:** Se hace una asignación de pesos pequeños generados de forma aleatoria, en un rango de valores entre $-0.5$ y $0.5$ o algo similar.
+
++ **Función base:** Es una función que corresponde a una combinación lineal del conjunto de entradas y los pesos sinápticos. Es decir:
+
+$$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j}$$
 
 ### Sesgo
+
+Ayuda a mover la línea que divide los datos de cada neurona, si el valor de $b$ es cero, la línea pasa por el origen, dependiendo del número que tenga este parámetro es por donde pasará la línea que divide a los datos.
+
+$$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j} \longrightarrow z=b+\sum_{j=1}^{n}w_{ij}x_{j} $$
 
 ### Pesos
 
@@ -45,7 +57,7 @@ De acuerdo a su estructura las redes neuronales se clasifican en:
 
 ### Función de activación
 
-### Salidas
+Las funciones de activación se dividen en dos tipos como: lineal y no lineal
 
 # Aprendizaje automático
 El aprendizaje automatico en las redes neuronales consta de unos pasos iniciales a los que se expone esta, para generar por medio del entrenamiento un primer acercamiento a las estimaciones que se pretenden realizar y en los cuales lo ideal es detectar cambios entre el valor estimado y el valor esperado para realizar los ajustes a las distintas combinaciones de los pesos.
@@ -137,3 +149,10 @@ A partir de la figura anterior es posible identificar:
 + El sesgo se puede pensar como la intersección de un modelo lineal.
 
 - Finalmente, el algoritmo de entrenamiento ha convergido y, por lo tanto, el modelo está listo para ser utilizado.
+
+# Bibliografía
+
++ Hastie, T., Tibshirani, R., & Friedman, J. (2009). The elements of statistical learning: data mining, inference, and prediction. Springer Science & Business Media.
+
+- Efron, B., & Hastie, T. (2016). Computer age statistical inference (Vol. 5). Cambridge University Press.
+
