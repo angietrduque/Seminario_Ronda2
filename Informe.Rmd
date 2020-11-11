@@ -1,7 +1,7 @@
 ---
-title: 'Ronda 2: Redes Neuronales'
-author: "Angie Rodriguez Duque - Cesar Saavedra Vanegas"
-date: "11/10/2020"
+title: 'Informe no. 2: Redes Neuronales'
+author: "Angie Rodriguez Duque & Cesar Saavedra Vanegas"
+date: "Octubre 13 de 2020"
 output: pdf_document
 ---
 
@@ -46,6 +46,8 @@ $$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j} \longrightarrow z=b+\sum_{j=1}^{n}w_{ij}x
 
 ### Pesos
 
+Se hace una asignación de pesos pequeños generados de forma aleatoria, en un rango de valores entre −0.5 y 0.5 o algo similar.
+
 De acuerdo a su estructura las redes neuronales se clasifican en:
 
 + **Redes monocapa:** Compuestas por una única capa de neuronas.
@@ -60,6 +62,7 @@ De acuerdo a su estructura las redes neuronales se clasifican en:
 Las funciones de activación se dividen en dos tipos como: lineal y no lineal
 
 # Aprendizaje automático
+
 El aprendizaje automatico en las redes neuronales consta de unos pasos iniciales a los que se expone esta, para generar por medio del entrenamiento un primer acercamiento a las estimaciones que se pretenden realizar y en los cuales lo ideal es detectar cambios entre el valor estimado y el valor esperado para realizar los ajustes a las distintas combinaciones de los pesos.
 
 ### ForwardPropagation
