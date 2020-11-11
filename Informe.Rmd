@@ -150,6 +150,30 @@ A partir de la figura anterior es posible identificar:
 
 - Finalmente, el algoritmo de entrenamiento ha convergido y, por lo tanto, el modelo está listo para ser utilizado.
 
+Posteriormente se realiza una comparación visual del ajuste de las estimaciones mediante la red neuronal y el modelo de regresión. 
+
+<center>
+![Red neuronal real vs. predicción](salida2.png "Red neuronal"){width=300px}
+
+A partir de la figura anterior es posible evidenciar que las predicciones hechas por la red neuronal se encuentran más concentradas alrededor de la línea, evidenciando una mejor predicción a la realizada mediante el modelo lineal de forma tradicional.
+
+```{r warning=FALSE, include=F, paged.print=TRUE}
+pr.nn <- compute(nn,test_[,1:13])
+
+pr.nn_ <- pr.nn$net.result*(max(data$medv)-min(data$medv))+min(data$medv)
+test.r <- (test_$medv)*(max(data$medv)-min(data$medv))+min(data$medv)
+
+MSE.nn <- sum((test.r - pr.nn_)^2)/nrow(test_)
+```
+
+```{r warning=FALSE, include=T, paged.print=TRUE}
+print(paste(MSE.lm,MSE.nn))
+```
+
+Adicional a la figura , se cuenta también con el error cuadrático medio (MSE) de 14.097 para las estimaciones obtenidas mediante la red neuronal, esto en comparación al 20.77 entregado por el modelo lineal. Lo cual permite concluir que la red neuronal entrega mejores estimaciones del precio medio de las viviendas esto en comparación con el modelo lineal. 
+
+
+
 # Bibliografía
 
 + Hastie, T., Tibshirani, R., & Friedman, J. (2009). The elements of statistical learning: data mining, inference, and prediction. Springer Science & Business Media.
