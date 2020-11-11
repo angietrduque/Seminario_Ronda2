@@ -182,6 +182,7 @@ Se trata de un proceso iterativo de “ir y venir” por las capas de neuronas.
 ![](back.png "Red neuronal"){height=400px}
 
 # Algunos problemas en el entrenamiento de las redes neuronales
+
 ##
 
 <div class="columns-2">

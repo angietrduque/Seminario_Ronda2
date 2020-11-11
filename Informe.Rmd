@@ -46,7 +46,7 @@ $$u_{i}(w,x)=\sum_{j=1}^{n}w_{ij}x_{j} \longrightarrow z=b+\sum_{j=1}^{n}w_{ij}x
 
 ### Pesos
 
-Se hace una asignación de pesos pequeños generados de forma aleatoria, en un rango de valores entre −0.5 y 0.5 o algo similar.
+Se hace una asignación de pesos pequeños generados de forma aleatoria, en un rango de valores entre -0.5 y 0.5 o algo similar.
 
 De acuerdo a su estructura las redes neuronales se clasifican en:
 
@@ -75,7 +75,7 @@ Se usa para estimar el error, para comparar y medir qué tan bueno/malo fue el r
 Partiendo de la capa de salida, esa información de loss se propaga hacia todas las neuronas de la capa oculta que contribuyen directamente a la salida. Sin embargo las neuronas de la capa oculta solo reciben una fracción de la señal total de la loss, basándose aproximadamente en la contribución relativa que haya aportado cada neurona a la salida original.
 
 <center>
-![Aprendizaje automático](back.png "Red neuronal"){width=500px}
+![Aprendizaje automático](back.png "Red neuronal"){width=400px}
 
 
 # Problemas en las redes neuronales
@@ -140,7 +140,7 @@ nn <- neuralnet(f,data=train_,hidden=c(5,3),linear.output=T)
 De esta manera, la representación gráfica del modelo con los pesos en cada conexión es la siguiente:
 
 <center>
-![Modelo red neuronal](5.png "Red neuronal"){width=700px}
+![Modelo red neuronal](5.png "Red neuronal"){width=600px}
 
 
 A partir de la figura anterior es posible identificar:
