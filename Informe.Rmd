@@ -14,6 +14,9 @@ Una de las ramas más importantes del Machine Learning y la Inteligencia Artific
 
 Al igual que una neurona biológica, una neurona artificial trata de imitar el comportamiento y funcionamiento de las neuronas de los organismos vivos. Al igual que una neurona biológica su estructura se encuentra compuesta por distintas capas y es posible agrupar multiples neuronas para en conjunto formar una red neuronal que permita formar una red neuronal, conectadas entre si y de forma que se puedan transmitir señales para lograr realizar calculos mas complejos. De esta forma damos paso a la estructura y cada una de sus componentes.
 
+<center>
+![](red2.gif "Red neuronal"){height=250px}
+
 # Estructura
 
 ### Capas
@@ -39,6 +42,10 @@ Se usa para estimar el error, para comparar y medir qué tan bueno/malo fue el r
 
 ### Backpropagation
 Partiendo de la capa de salida, esa información de loss se propaga hacia todas las neuronas de la capa oculta que contribuyen directamente a la salida. Sin embargo las neuronas de la capa oculta solo reciben una fracción de la señal total de la loss, basándose aproximadamente en la contribución relativa que haya aportado cada neurona a la salida original.
+
+<center>
+
+![](back.png "Red neuronal"){height=400px}
 
 # Problemas en las redes neuronales
 
